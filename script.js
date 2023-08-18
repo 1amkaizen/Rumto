@@ -8,6 +8,32 @@ const numberSequenceDisplaySubtract = document.getElementById(
 );
 const generateBtnSubtract = document.getElementById("generateBtnSubtract");
 
+generateBtn.addEventListener("click", () => {
+  // Tampilkan iklan di dalam #adsense-container
+  const adsenseContainer = document.getElementById("adsense-container");
+  adsenseContainer.style.display = "block";
+
+  // Tunggu hingga iklan selesai ditonton
+  adsbygoogle = window.adsbygoogle || [];
+  adsbygoogle.push(() => {
+    adsbygoogle.
+    ads
+pauseAdRequests = true;
+    adsbygoogle.
+    ads
+adsbygoogle.push({});
+  });
+
+  // Setelah iklan selesai, tampilkan hasil
+  adsenseContainer.addEventListener("adsbygoogle:adclosed", () => {
+    adsenseContainer.style.display = "none"; // Sembunyikan iklan
+    // Tampilkan hasil di sini
+    generateNumberSequence(); // Panggil fungsi yang menampilkan hasil
+  });
+});
+
+
+
 inputDigits.forEach((digitInput, index) => {
   if (index < inputDigits.length - 1) {
     digitInput.addEventListener("input", handleInputChange);
