@@ -16,12 +16,10 @@ generateBtn.addEventListener("click", () => {
   // Tunggu hingga iklan selesai ditonton
   adsbygoogle = window.adsbygoogle || [];
   adsbygoogle.push(() => {
-    adsbygoogle.
-    ads
-pauseAdRequests = true;
-    adsbygoogle.
-    ads
-adsbygoogle.push({});
+    adsbygoogle.ads;
+    pauseAdRequests = true;
+    adsbygoogle.ads;
+    adsbygoogle.push({});
   });
 
   // Setelah iklan selesai, tampilkan hasil
@@ -31,8 +29,6 @@ adsbygoogle.push({});
     generateNumberSequence(); // Panggil fungsi yang menampilkan hasil
   });
 });
-
-
 
 inputDigits.forEach((digitInput, index) => {
   if (index < inputDigits.length - 1) {
@@ -116,6 +112,55 @@ function generateNumberSequence() {
     nonRedBox.textContent = digit;
     nonRedNumbers.appendChild(nonRedBox);
   });
+
+  // Setelah kode menampilkan hasil perhitungan, tambahkan ini
+  const randomNumberDisplay = document.getElementById("randomNumberDisplay");
+  randomNumberDisplay.innerHTML = ""; // Kosongkan konten sebelumnya
+
+  const randomButton = document.createElement("button");
+  randomButton.classList.add("btn", "btn-primary", "mt-3");
+  randomButton.textContent = "Generate Angka Acak";
+  randomButton.addEventListener("click", generateRandomNumberFromNonRed);
+
+  randomNumberDisplay.appendChild(randomButton);
+}
+
+function generateRandomNumberFromNonRed() {
+  const nonRedNumbers = getNonRedNumbers();
+  const nonRedNumbersSubtract = getNonRedNumbersSubtract();
+
+  const combinedNonRedNumbers = nonRedNumbers.concat(nonRedNumbersSubtract);
+
+  if (combinedNonRedNumbers.length < 4) {
+    return; // Hanya lanjutkan jika ada cukup angka non-merah dari kedua hasil perhitungan
+  }
+
+  const randomNumbers = Array.from({ length: 4 }, () => {
+    const randomIndex = Math.floor(
+      Math.random() * combinedNonRedNumbers.length
+    );
+    return combinedNonRedNumbers[randomIndex];
+  });
+
+  const randomNumberDisplay = document.getElementById("randomNumberDisplay");
+  const randomNumberParagraph = document.createElement("p");
+  randomNumberParagraph.textContent = `Hasil Prediksi: ${randomNumbers.join(
+    ""
+  )}`;
+
+  randomNumberDisplay.appendChild(randomNumberParagraph);
+}
+
+function getNonRedNumbers() {
+  const nonRedNumberBoxes = document.querySelectorAll(".number-box.non-red");
+  return Array.from(nonRedNumberBoxes, (box) => box.textContent);
+}
+
+function getNonRedNumbersSubtract() {
+  const nonRedNumberBoxesSubtract = document.querySelectorAll(
+    ".number-box.non-red"
+  );
+  return Array.from(nonRedNumberBoxesSubtract, (box) => box.textContent);
 }
 function shiftNumber(number, shift, subtract) {
   const shiftedNumber = [];
