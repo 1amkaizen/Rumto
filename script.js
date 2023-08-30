@@ -119,7 +119,7 @@ function generateNumberSequence() {
 
   const randomButton = document.createElement("button");
   randomButton.classList.add("btn", "btn-primary", "mt-3");
-  randomButton.textContent = "Generate Angka Acak";
+  randomButton.textContent = "Generate";
   randomButton.addEventListener("click", generateRandomNumberFromNonRed);
 
   randomNumberDisplay.appendChild(randomButton);
