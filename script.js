@@ -64,7 +64,8 @@ function generateNumberSequence() {
     .join("");
 
   if (enteredNumber.length !== 4 || isNaN(enteredNumber)) {
-    numberSequenceDisplay.innerHTML = "Please enter a valid 4-digit number.";
+    numberSequenceDisplay.innerHTML =
+      "Silakan masukkan nomor 4 digit yang valid.";
     return;
   }
 
@@ -137,7 +138,7 @@ function generateNumberSequenceSubtract() {
 
   if (enteredNumber.length !== 4 || isNaN(enteredNumber)) {
     numberSequenceDisplaySubtract.innerHTML =
-      "Please enter a valid 4-digit number.";
+      "Silakan masukkan nomor 4 digit yang valid.";
     return;
   }
 
