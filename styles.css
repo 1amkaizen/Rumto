@@ -72,3 +72,18 @@ body {
   background-color: red;
 }
 
+/* CSS untuk menyusun angka-angka dalam satu baris secara horizontal */
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap; /* agar angka-angka tidak melompat ke baris berikutnya */
+}
+.a {
+  display: flex;
+  flex-wrap: nowrap; /* agar angka-angka tidak melompat ke baris berikutnya */
+}
+
+/* Gaya untuk setiap angka dalam kotak */
+.number-box.non-red {
+  /* Tambahkan gaya sesuai kebutuhan */
+  margin-right: 10px; /* Spasi antara angka-angka */
+}
